@@ -32,7 +32,7 @@ public class MinotaurCrystalVase {
 
 		// Make guests and add threads to a list
 	 for (int i = 0; i < numGuests; i++) {
-		 Guest guest = new Guest(showRoom, numGuests);
+		 Guest guest = new Guest(showRoom, i);
 		 Thread th = new Thread(guest);
 		 showRoom.threads.add(th);
 		 th.start();
@@ -44,22 +44,24 @@ public class MinotaurCrystalVase {
 
 class Guest implements Runnable {
 	static MinotaurCrystalVase showRoom;
-	int numGuests;
+	int guestNum;
 	boolean sawVase;
+	boolean canGoAgain;
 
-	public Guest(MinotaurCrystalVase showRoom, int numGuests) {
+	public Guest(MinotaurCrystalVase showRoom, int guestNum) {
 		this.showRoom = showRoom;
-		this.numGuests = numGuests;
+		this.guestNum = guestNum;
 		this.sawVase = false;
+		this.canGoAgain = false;
+		// The first half of the line decides to go again because its a short wait
+		int half = showRoom.numGuests / 2;
+		if (guestNum < half) {
+			this.canGoAgain = true;
+		}
 	}
 
 	public void run() {
-			try{
-				Thread.sleep(1);
-			}
-			catch (InterruptedException e) {
-				return;
-			}
+		while(true) {
 			synchronized(this) {
 				try {
 					showRoom.vaseLine.lock();
@@ -68,11 +70,19 @@ class Guest implements Runnable {
 						sawVase = true;
 					}
 
-				} finally {
-					showRoom.vaseLine.unlock();
+					else if (canGoAgain) {
+						canGoAgain = false;
+					}
+
+					else {
+						showRoom.vaseLine.unlock();
+						break;
+					}
+				} catch (Exception e) {
+					return;
 				}
 			}
-
+		}
 	}
 }
 
