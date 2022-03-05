@@ -11,6 +11,7 @@ No cupcake:
 
 To run the program:
 javac MinotaurBirthdayParty.java
+
 java MinotaurBirthdayParty
 
 The program will ask for user input and will then run the scenario. It will print to the console after all guests have existed the labyrinth.
@@ -25,6 +26,7 @@ Instead of implementing Lock the class extends an AbstractLock which I credit to
 
 To run the program:
 javac MinotaurCrystalVase.java
+
 java  MinotaurCrystalVase
 
 The program will ask for user input and will then run the scenario. It will print to the console after the scenario is finished.
