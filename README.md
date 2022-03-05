@@ -19,6 +19,8 @@ The program will ask for user input and will then run the scenario. It will prin
   
  
  
+ 
+ 
 Problem 2: Minotaur’s Crystal Vase (50 points)
 
 Out of the three scenarios, I believe the best choice is scenario three. This is scenario prevents the race for the door that could happen with options one and two. However, unlike the previous two choices guests in the third scenario are unable to do other things while not in the vase room. The reason for this is because they have to wait in a queue.
