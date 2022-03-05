@@ -27,4 +27,4 @@ To run the program:
 javac MinotaurCrystalVase.java
 java  MinotaurCrystalVase
 
-The program will ask for user input and will then run the scenario. It will print to the console.
+The program will ask for user input and will then run the scenario. It will print to the console after the scenario is finished.
