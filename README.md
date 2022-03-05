@@ -10,6 +10,7 @@ No cupcake:
 (2) Others just leave it
 
 To run the program:
+
 javac MinotaurBirthdayParty.java
 
 java MinotaurBirthdayParty
@@ -25,6 +26,7 @@ To implement the third scenario I use an array-based queue lock is from Chapter 
 Instead of implementing Lock the class extends an AbstractLock which I credit to github user javaf https://github.com/javaf/mcs-lock/blob/master/AbstractLock.java
 
 To run the program:
+
 javac MinotaurCrystalVase.java
 
 java  MinotaurCrystalVase
